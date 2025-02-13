@@ -4,10 +4,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.ToString;
 
-import java.util.List;
 @Getter
 @ToString
-public class item {
+public class Item {
     private String title;
     private String link;
     private String image;
