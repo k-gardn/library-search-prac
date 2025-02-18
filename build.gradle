@@ -6,6 +6,7 @@ plugins {
 subprojects {
 	apply plugin: 'java'
 	apply plugin: 'groovy'
+	apply plugin: 'java-library' //naver-client의 build.gradle의 api '...openfeign'사용을 위함
 	apply plugin:'org.springframework.boot'
 	apply plugin:'io.spring.dependency-management'
 

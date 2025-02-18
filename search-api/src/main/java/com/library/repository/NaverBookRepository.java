@@ -33,7 +33,7 @@ public class NaverBookRepository implements BookRepository{
                 .title(item.getTitle())
                 .author(item.getAuthor())
                 .publisher(item.getPublisher())
-                .pubDate(DateUtills.parse(item.getPubDate()))
+                .pubDate(DateUtills.parseYYYMMDD(item.getPubDate()))
                 .isbn(item.getIsbn())
                 .build();
     }

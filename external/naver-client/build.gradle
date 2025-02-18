@@ -2,6 +2,6 @@ jar.enabled = true
 
 dependencies {
     implementation project(':common') // NaverErrorDecoder에서 ApiException을 사용할 수 있도록 설정 추가.
-    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
+    api 'org.springframework.cloud:spring-cloud-starter-openfeign'
 
 }
