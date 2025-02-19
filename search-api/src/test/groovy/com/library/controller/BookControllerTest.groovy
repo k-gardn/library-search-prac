@@ -1,8 +1,6 @@
 package com.library.controller
 
 import com.library.sevice.BookApplicationService
-import com.library.sevice.BookQueryService
-import org.springframework.cglib.core.Local
 import org.springframework.http.HttpStatus
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
@@ -65,5 +63,23 @@ class BookControllerTest extends Specification {
                 assert query == givenQuery
                 assert date == givenDate
         }
+    }
+
+    def "findTop5Query"(){
+        given:
+        def givenQuery = "Http"
+        def givenDate = LocalDate.of(2024,5,1)
+
+
+        when:
+        def response  = mockMvc.perform(
+                MockMvcRequestBuilders.get("/v1/books/stats/ranking"))
+                .andReturn()
+                .response
+        then:
+        response.status == HttpStatus.OK.value()
+
+        and:
+        1 * bookApplicationService.findTop5Query()
     }
 }

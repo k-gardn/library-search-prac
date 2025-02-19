@@ -45,7 +45,7 @@ class BookApplicationServiceTest extends Specification {
 
     }
 
-    def"findQueryCount메서드 호출시 검색결과를 반환하면서 통계데이터를 저장한다."(){
+    def"findQueryCount메서드 호출시 인자를 그대로 넘긴다."(){
         given:
         def givenQuery = "HTTP"
         def givenDate = LocalDate.of(2024,5,1)
@@ -61,6 +61,16 @@ class BookApplicationServiceTest extends Specification {
                 assert date == givenDate
         }
 
+
+    }
+
+    def"findTop5Query메서드 호출시 dailyStatQueryService의 findTop5Query가 호출된다."(){
+
+        when:
+        bookApplicationService.findTop5Query( )
+
+        then:
+        1 * dailyStatQueryService.findTop5Query(*_)
 
     }
 }
